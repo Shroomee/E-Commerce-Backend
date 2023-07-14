@@ -5,21 +5,24 @@ const { Category, Product } = require('../../models');
 
 router.get('/', (req, res) => {
   // find all categories
-  Category.findAll({include: [Product]}).then((data) => {
+  Category.findAll({include: [Product]})
+  .then((data) => {
     res.json(data);
   });
 });
 
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
-  Category.findByPk(req.params.id, {include: [Product]}).then((data) => {
+  Category.findByPk(req.params.id, {include: [Product]})
+  .then((data) => {
     res.json(data);
   });
 });
 
 router.post('/', (req, res) => {
   // create a new category
-  Category.create(req.body).then((data) => {
+  Category.create(req.body)
+  .then((data) => {
     res.json(data);
   });
 });
